@@ -1,0 +1,64 @@
+# ── SO / system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+.Spotlight-V100
+.Trashes
+
+# ── Java / Maven
+target/
+*.class
+*.hprof
+hs_err_pid*.log
+replay_pid*.log
+
+# ── Packaged artifacts/files (not required in the repo)
+*.log
+*.zip
+*.tar
+*.gz
+
+# ── IDEs
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# ── Coverage / sites
+jacoco.exec
+coverage/
+site/
+
+# ── Local configuration/secrets (keep example application.yml in repo)
+.env
+*.env
+.env.*
+*.local
+application-*.local.yml
+application-*.secret.yml
+secrets.*
+*.keystore
+*.p12
+
+# ── Local Docker variants
+docker-compose.override.yml
+
+# ── Node (in case you add a static landing page to the repository)
+node_modules/
+dist/
+build/
+
+# ── Various (editors)
+*.swp
+*.swo
+*.orig
+*.rej
