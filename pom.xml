@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>com.example</groupId>
   <artifactId>job-application-tracker</artifactId>
   <version>1.0.0</version>
@@ -11,7 +12,7 @@
   <properties>
     <java.version>21</java.version>
     <mapstruct.version>1.5.5.Final</mapstruct.version>
-    <spring-boot.version>3.3.2</spring-boot.version>
+    <spring-boot.version>3.3.13</spring-boot.version>
   </properties>
 
   <dependencyManagement>
@@ -83,12 +84,27 @@
     </dependency>
   </dependencies>
 
+  <!-- *** ÚNICO build *** -->
   <build>
+    <!-- El jar final será target/app.jar -->
+    <finalName>app</finalName>
+
     <plugins>
+      <!-- Reempaqueta el jar para que sea ejecutable (fat jar) -->
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring-boot.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
+
+      <!-- Compiler (incluye annotation processor de MapStruct) -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
